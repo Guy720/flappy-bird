@@ -259,7 +259,7 @@ function criaCanos(){
           return true;
         }
 
-        if (peDoFlappy >= par.canoChao.y) {
+        if (peDoFlappy <= par.canoChao.y) {
           return true;
         }
       }
