@@ -2,6 +2,12 @@ let frames = 0;
 const som_HIT = new Audio();
 som_HIT.src = './efeitos/hit.wav';
 
+const som_PULO = new Audio();
+som_PULO.src = './efeitos/pulo.wav';
+
+const som_PONTO = new Audio();
+som_PONTO.src = './efeitos/ponto.wav';
+
 const sprites = new Image();
 sprites.src = './sprites.png';
 
@@ -101,10 +107,8 @@ function criaFlappyBird() {
     y: 50,
     pulo: 4.6,
     pula() {
-      console.log('devo pular');
-      console.log('[antes]', flappyBird.velocidade);
+      som_PULO.play();
       flappyBird.velocidade =  - flappyBird.pulo;
-      console.log('[depois]', flappyBird.velocidade);
     },
     gravidade: 0.25,
     velocidade: 0,
@@ -264,6 +268,7 @@ function criaCanos() {
         if(peDoFlappy >= par.canoChao.y) {
           return true;
         }
+
       }
       return false;
     },
@@ -277,8 +282,6 @@ function criaCanos() {
           y: -150 * (Math.random() + 1),
         });
       }
-
-
 
       canos.pares.forEach(function(par) {
         par.x = par.x - 2;
